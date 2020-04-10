@@ -102,13 +102,13 @@ font-4 = MaterialDesignIcons:size=10;3
 ;   modules-center = xwindow xbacklight
 ;   modules-right = ipc clock
 modules-left = i3
-modules-center = date sep exam 
+modules-center = date sep exam sep day 
 modules-right = wireless-network sep memory sep backlight sep battery
 
 ; cpu
 
 ; The separator will be inserted between the output of each module
-separator =  
+separator = 
 
 ; This value is used to add extra spacing between elements
 ; @deprecated: This parameter will be removed in an upcoming version
@@ -277,6 +277,18 @@ interval = 3600
 format = <label>
 #format-background = #999
 format-foreground = #dd2b1f
+
+
+[module/day]
+type = custom/script
+
+exec = $HOME/.config/polybar/daypersent.py
+tail = true
+interval = 9
+
+format = <label>
+#format-background = #999
+format-foreground = #ffff66
 
 [module/cpu]
 type = internal/cpu
