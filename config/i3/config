@@ -35,6 +35,9 @@ client.background        #ffffff
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
 
+# Start picom (compton)
+exec --no-startup-id "picom --config ~/.config/picom/picom.conf -b"
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
