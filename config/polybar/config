@@ -11,6 +11,8 @@
 ; XRandR sometimes reports my monitor as being disconnected (when in use)
 ; monitor-strict = false
 
+monitor = ${env:MONITOR:}
+
 ; Tell the Window Manager not to configure the window.
 ; Use this to detach the bar if your WM is locking its size/position.
 ; Note: With this most WMs will no longer reserve space for 
@@ -238,6 +240,12 @@ label-focused = %index%
 label-focused-background = #245361
 label-focused-padding = 1
 label-focused-foreground = #98D1CE
+
+label-mode = %mode%
+label-mode-background = #245361
+label-mode-padding = 1
+label-mode-foreground = #98D1CE
+
 
 [module/date]
 type = internal/date
