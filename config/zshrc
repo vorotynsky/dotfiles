@@ -1,0 +1,35 @@
+# History
+HISTFILE=~/.cache/histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
+stty iutf8
+autoload -U colors && colors
+
+RAINBOW='%F{red}❯%F{yellow}❯%F{green}❯%f'
+PS1="%F{cyan}%(5~|%-1~/.../%3~|%4~) $RAINBOW "
+
+unsetopt prompt_cr prompt_sp
+
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+
+
+setopt autocd extendedglob
+unsetopt beep
+bindkey -v
+#zstyle :compinstall filename '/home/vorotynsky/.zshrc'
+
+alias la='ls -al'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias testc='cmake --build . && ctest .'
+
+export EDITOR=vim
+export PATH={$PATH}:$HOME/dotfiles/scripts
+
