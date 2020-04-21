@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "keep your config at $HOME/dotfiles/"
+
+for p in $(ls $HOME/dotfiles/config)
+do
+    ln -s $HOME/dotfiles/config/$p $HOME/.config/$p
+done
+
