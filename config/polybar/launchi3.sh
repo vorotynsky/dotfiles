@@ -14,10 +14,10 @@ sleep .5
 if ! pgrep -x polybar ; then
 	echo "poly not running"
 	polybar mybar 
-else
-	pkill polybar
-	polybar mybar
+  exit 0
 fi
+
+pkill polybar
 
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
