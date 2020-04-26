@@ -1,0 +1,43 @@
+[colors]
+
+# special
+foreground      = #2a2c33
+foreground_bold = #2a2c33
+cursor          = #2a2c33
+background      = #e9e7e3
+
+# black
+color0  = #555555
+color8  = #888888
+
+# red
+color1  = #9c3528
+color9  = #d64937
+
+# green
+color2  = #4c932e
+color10 = #77c653
+
+# yellow
+color3  = #f3b43a
+color11 = #fdd75a
+
+# blue
+color4  = #0d68a8
+color12 = #0f75bd
+
+# magenta
+color5  = #744560
+color13 = #9e5e83
+
+# cyan
+color6  = #288e9c
+color14 = #37c3d6
+
+# white
+color7  = #a2a2a2
+color15 = #f9f9f9
+
+
+[options]
+font = Hack Nerd Font Mono 12.5
