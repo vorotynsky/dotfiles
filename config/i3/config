@@ -32,11 +32,11 @@ client.urgent            #ff0000       #ff0000       #ffffff       #268BD2
 client.placeholder       #000000       #848484       #FFFFFF       #268BD2 
 client.background        #ffffff
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 new_window 1pixel
 
 # Start picom (compton)
-exec --no-startup-id "picom --config ~/.config/picom/picom.conf -b"
+exec --no-startup-id "picom --experimental-backends --backend glx --config ~/.config/picom/picom.conf -b"
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.

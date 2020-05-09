@@ -1,0 +1,7 @@
+config/polybar/colors.ini
+config/termite/config
+config/nvim/.netrwhist
+
+eyecare/eyecare
+eyecare/*.o
+eyecare/*.obj

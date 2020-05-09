@@ -1,0 +1,16 @@
+[colors]
+background = #2d2d2d
+i3ws-focus-bg = #4799cc
+i3ws-focus-fg = #303952
+i3ws-unfocus-fg = #4799cc
+
+date = #63cdda
+net-connected = #dcdde1
+net-disconnected = #7f8fa6
+day = #f5cd79
+cpu = #718093
+memory = #718093
+batary-charging = #44bd32
+batary-discharging = #f7b731
+brightness = #f7d794
+updates = #718093

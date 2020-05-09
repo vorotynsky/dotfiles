@@ -1,3 +1,5 @@
+include-file=$HOME/.config/polybar/colors.ini
+
 [bar/mybar]
 monitor = ${env:MONITOR:}
 ; Note: With this most WMs will no longer reserve space for 
@@ -8,20 +10,20 @@ width = 100%
 height = 25
 fixed-center = true
 
-background = #101010
+background = ${colors.background}
 radius = 0
 line-size = 2
 line-color = #fff
 padding-right = 0
-module-margin = 1
+module-margin = 2.5
 
-font-0 = Inconsolata for Powerline:bold:size=10;3
-font-1 = FontAwesome:style=Solid:size=10;3
+font-0 = FontAwesome:style=Solid:size=10;3
+font-1 = RobotoMono Nerd Font:bold:size=10;3
 font-2 = CaskaydiaCove Nerd Font Mono:size=10;3
 
 modules-left = i3
-modules-center = date sep exam sep day 
-modules-right = wireless-network sep memory sep backlight sep battery
+modules-center = date exam day 
+modules-right = wireless-network memory backlight battery
 
 separator = 
 dim-value = 1.0
@@ -32,7 +34,7 @@ tray-maxsize = 16
 tray-background = ${root.background}
 tray-offset-x = 0
 tray-offset-y = 0
-tray-padding = 0
+tray-padding = 4
 tray-scale = 1.0
 
 dpi-x = 135
@@ -65,17 +67,17 @@ fuzzy-match = true
 
 label-unfocused = %index%
 label-unfocused-padding = 1
-label-unfocused-foreground = #98D1CE
+label-unfocused-foreground = ${colors.i3ws-unfocus-fg}
 
 label-focused = %index%
-label-focused-background = #245361
+label-focused-background = ${colors.i3ws-focus-bg}
 label-focused-padding = 1
-label-focused-foreground = #98D1CE
+label-focused-foreground = ${colors.i3ws-focus-fg}
 
 label-mode = %mode%
-label-mode-background = #245361
+label-mode-background = ${colors.i3ws-focus-bg}
 label-mode-padding = 1
-label-mode-foreground = #98D1CE
+label-mode-foreground = ${colors.i3ws-focus-fg}
 
 
 [module/date]
@@ -89,7 +91,7 @@ time-alt = %H:%M:%S
 
 label = %date% %time%
 label-font = 0
-label-foreground = #98D1CE
+label-foreground = ${colors.date}
 
 
 [module/wireless-network]
@@ -100,10 +102,10 @@ format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 
 label-connected = 直
-label-connected-foreground = #eefafafa
+label-connected-foreground = ${colors.net-connected}
 
 label-disconnected = 睊
-label-disconnected-foreground = #66ffffff
+label-disconnected-foreground = ${colors.net-disconnected}
 
 
 [module/exam]
@@ -113,8 +115,9 @@ exec = $HOME/.config/polybar/toexams.py
 tail = true
 interval = 3600
 
-format = <label>
-format-foreground = #dd2b1f
+format =  <label> 
+format-foreground = #f1f2f6
+format-background = #c44569
 
 
 [module/day]
@@ -125,8 +128,7 @@ tail = true
 interval = 9
 
 format = <label>
-#format-background = #999
-format-foreground = #ffff66
+format-foreground = ${colors.day}
 
 
 [module/cpu]
@@ -134,8 +136,8 @@ type = internal/cpu
 
 interval = 0.5
 
-label =  %percentage:2%%
-label-foreground = #33859D
+label =  %percentage:02%%
+label-foreground = ${colors.cpu}
 
 
 [module/memory]
@@ -145,7 +147,7 @@ interval = 0.5
 format = <label>
 
 label = %gb_used%
-label-foreground = #888BA5
+label-foreground = ${colors.memory}
 
 
 [module/battery]
@@ -161,22 +163,21 @@ poll-interval = 5
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-format-full = <ramp-capacity> <label-full>
+format-full = <label-full>
 
 label-charging = %percentage:2%%
-label-charging-foreground = #26A98B
+label-charging-foreground = ${colors.batary-charging}
 label-discharging = %percentage:2%%
-label-discharging-foreground = #EDB54B
-label-full = %percentage:2%%
-label-full-foreground = #31A354
+label-discharging-foreground = ${colors.batary-discharging}
+label-full =  %percentage:2%%
+label-full-foreground = ${colors.batary-charging}
 
-; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = #EDB54B
+ramp-capacity-foreground = ${colors.batary-discharging}
 
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 10
@@ -187,17 +188,10 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = #26A98B
+animation-charging-foreground = ${colors.batary-charging}
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
-; Only applies if <animation-discharging> is used
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-foreground = #DCA060
 ; Framerate in milliseconds
 animation-discharging-framerate = 500
 
@@ -210,7 +204,7 @@ type = internal/backlight
 card = amdgpu_bl0
 
 format = <ramp> 
-format-foreground = #ffda79 
+format-foreground = ${colors.brightness}
 
 ramp-13 =  
 ramp-12 = 
@@ -236,6 +230,3 @@ content-foreground = #343434
 margin = 0
 
 
-[module/sep]
-inherit = module/decor-glyph
-content = "|"
