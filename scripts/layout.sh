@@ -4,7 +4,7 @@ MODE="--mode 1920x1080"
 EDP1="--output eDP-1 --primary" # main laptop screen
 HDMI="--output HDMI-1" # hdmi
 
-MENU="laptop:on \nhdmi:off \nhdmi:up \nhdmi:left \nhdmi:right \nhdmi:down \nlaptop:off"
+MENU="laptop:on \nhdmi:off \nhdmi:up \nhdmi:left \nhdmi:right \nhdmi:down \nhdmi:center \nlaptop:off"
 
 [ -z $1 ] && exit 0
 

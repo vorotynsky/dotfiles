@@ -14,7 +14,6 @@ function call {
 
 function i3call {
     i3-msg "$@" > /dev/null || (echo "error" && exit 1)
-    sleep 0.2
 }
 
 TMLARG=$1
@@ -22,7 +21,7 @@ TMLARG=$1
 TERMINAL=$HOME/dotfiles/scripts/tm.sh
 
 i3call split h
-call i3-sensible-terminal -e "/bin/sh -c 'sleep 1.5 && ghcid'"
+call i3-sensible-terminal -e "/bin/sh -c 'sleep 0.5 && ghcid'"
 i3call split v
 call $TERMINAL $TMLARG
 

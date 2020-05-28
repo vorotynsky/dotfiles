@@ -1,7 +1,7 @@
 #!/bin/sh
 
-function pause(){
-   read -p "$*"
+function pause() {
+    read -p "$*"
 }
 
 function ntp(){
@@ -17,8 +17,8 @@ function ntp(){
     if [ $NTPN -ne $NTPB ] 
     then
         clear
-        timedatectl set-ntp $NTPN
-        pause "Press [Enter] to continue"
+        timedatectl set-ntp $NTPN ||
+            pause "Press [Enter] to continue"
     fi
 }
 
@@ -40,8 +40,8 @@ do
         "t")
             NEWTIME=$(dialog --stdout --timebox "enter time" 0 0 $HR $MIN $SEC)
             clear
-            timedatectl set-time $NEWTIME
-            pause "Press [Enter] to continue"
+            timedatectl set-time $NEWTIME ||
+                pause "Press [Enter] to continue" 
             ;;
         "d")
             NEWDATE=$(dialog --stdout --calendar "choose date" 0 0 $DAY $MOUNTH $YEAR)
@@ -49,8 +49,8 @@ do
             NMOUN=$(echo $NEWDATE | cut -d'/' -f2)
             NDAY=$(echo $NEWDATE | cut -d'/' -f1)
             clear
-            timedatectl set-time "${NYEAR}-${NMOUN}-${NDAY} ${HR}:${MIN}:${SEC}"
-            pause "Press [Enter] to continue"
+            timedatectl set-time "${NYEAR}-${NMOUN}-${NDAY} ${HR}:${MIN}:${SEC}" ||
+                pause "Press [Enter] to continue"
             ;;
         "q")
             break;
