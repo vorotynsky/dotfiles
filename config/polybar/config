@@ -23,7 +23,7 @@ font-2 = CaskaydiaCove Nerd Font Mono:size=10;3
 
 modules-left = i3
 modules-center = date exam day 
-modules-right = wireless-network memory backlight battery
+modules-right = updates cpu wireless-network memory backlight battery
 
 separator = 
 dim-value = 1.0
@@ -98,8 +98,8 @@ label-foreground = ${colors.date}
 type = internal/network
 interface = wlp1s0
 
-format-connected = <ramp-signal> <label-connected>
-format-disconnected = <label-disconnected>
+format-connected = %{A1:notify-send "$(nmcli | head -n 1)":} <label-connected> %{A}
+format-disconnected = %{A1:notify-send "disconnected":} <label-disconnected> %{A}
 
 label-connected = 直
 label-connected-foreground = ${colors.net-connected}
@@ -226,10 +226,14 @@ ramp-0 = 
 
 enable-scroll = false 
 
+[module/updates]
+type = custom/script
 
-[module/decor-glyph]
-type = custom/text
-content-foreground = #343434
-margin = 0
+exec = sh $HOME/dotfiles/scripts/updates | wc -l
+click-left = (notify-send "$($HOME/dotfiles/scripts/updates)")& $HOME/dotfiles/config/polybar/launchi3.sh&
+click-right = (i3-sensible-terminal -e "/bin/sh -c 'i3-msg floating toggle > /dev/null && sudo pacman -Suy && echo && echo "done" && read'")&
+tail = true
+interval = 3600
 
-
+format =  <label>
+format-foreground = ${colors.updates}
