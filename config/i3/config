@@ -232,6 +232,7 @@ mode "monitors" {
 bindsym $mod+m mode "monitors"
 bindsym $mod+Shift+m exec --no-startup-id "$HOME/dotfiles/scripts/layout.sh menu"
 
+bindsym $mod+shift+t exec "$HOME/dotfiles/scripts/theme.sh"
 
 exec_always --no-startup-id $HOME/.config/polybar/launchi3.sh 
 

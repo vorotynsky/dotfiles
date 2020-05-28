@@ -78,13 +78,13 @@ label-mode = %mode%
 label-mode-background = ${colors.i3ws-focus-bg}
 label-mode-padding = 1
 label-mode-foreground = ${colors.i3ws-focus-fg}
-
+label-mode-underline = ${colors.background}
 
 [module/date]
 type = internal/date
 interval = 1.0
 
-date = %d.%m %Y%
+date = %d.%m%
 time = %H:%M
 date-alt = %A, %d %B %Y
 time-alt = %H:%M:%S
@@ -119,6 +119,9 @@ format =  <label> 
 format-foreground = #f1f2f6
 format-background = #c44569
 
+format-overline = #a22347
+format-underline = #d5567a
+
 
 [module/day]
 type = custom/script
@@ -134,7 +137,7 @@ format-foreground = ${colors.day}
 [module/cpu]
 type = internal/cpu
 
-interval = 0.5
+interval = 2
 
 label =  %percentage:02%%
 label-foreground = ${colors.cpu}

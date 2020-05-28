@@ -1,5 +1,7 @@
 config/polybar/colors.ini
 config/termite/config
+config/zathura/zathurarc
+
 config/nvim/.netrwhist
 
 eyecare/eyecare
