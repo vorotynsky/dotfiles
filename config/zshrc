@@ -26,10 +26,36 @@ alias la='ls -al'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias mv='mv -i'
-alias rm='rm -i'
+
+alias ranger='ranger --choosedir=$HOME/.cache/ranger/rangerdir; LASTDIR=`cat $HOME/.cache/ranger/rangerdir`; cd "$LASTDIR"'
+alias ntfs-mount='sudo mount -t ntfs-3g -o rw,auto,user,fmask=0022,dmask=0000'
+alias fsstat='df -h | head -n 1 && df -h | grep nvme'
+alias ss='yay -Ss'
+alias ssi='sudo pacman -S'
+alias ssy='yay -S'
 
 alias testc='cmake --build . && ctest .'
 
+function wfr {
+    nmcli r w off && nmcli r w on
+    while true
+    do
+        nmcli
+        sleep 0.1
+        clear
+    done
+}
+
+function mkcd {
+    mkdir $1 -p
+    cd $1 
+}
+
+function dirsize {
+    size=10
+    du -h  $1 | sort -hr | head -n $size
+}
+
 export EDITOR=vim
-export PATH={$PATH}:$HOME/dotfiles/scripts
+export PATH=$PATH:$HOME/dotfiles/scripts
 

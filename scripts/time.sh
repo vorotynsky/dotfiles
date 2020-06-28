@@ -22,6 +22,7 @@ function ntp(){
     fi
 }
 
+ntp
 
 while true
 do
@@ -32,7 +33,7 @@ do
     MOUNTH=$(date +%m)
     YEAR=$(date +%Y)
 
-    menu=$(dialog --stdout --menu "time manager" 0 0 0 s "network sync" t "set time" d "set date" q "exit")
+    menu=$(dialog --stdout --menu "time manager" 0 0 0 q "exit" t "set time" d "set date" s "network sync")
     case $menu in
         "s")
             ntp
