@@ -22,7 +22,7 @@ font-1 = RobotoMono Nerd Font:bold:size=10;3
 font-2 = CaskaydiaCove Nerd Font Mono:size=10;3
 
 modules-left = i3
-modules-center = date exam day 
+modules-center = date day 
 modules-right = updates cpu wireless-network memory backlight battery
 
 separator = 
@@ -106,22 +106,6 @@ label-connected-foreground = ${colors.net-connected}
 
 label-disconnected = 睊
 label-disconnected-foreground = ${colors.net-disconnected}
-
-
-[module/exam]
-type = custom/script
-
-exec = $HOME/.config/polybar/toexams.py
-tail = true
-interval = 3600
-
-format =  <label> 
-format-foreground = #f1f2f6
-format-background = #c44569
-
-format-overline = #a22347
-format-underline = #d5567a
-
 
 [module/day]
 type = custom/script
