@@ -22,7 +22,7 @@ font-1 = RobotoMono Nerd Font:bold:size=10;3
 font-2 = CaskaydiaCove Nerd Font Mono:size=10;3
 
 modules-left = i3
-modules-center = date day 
+modules-center = date day sport 
 modules-right = updates cpu wireless-network memory backlight battery
 
 separator = 
@@ -221,3 +221,8 @@ interval = 3600
 
 format =  <label>
 format-foreground = ${colors.updates}
+
+[module/sport]
+type = custom/text
+content = %{A1: $HOME/dotfiles/scripts/sport.py:} %{A}
+content-foreground = ${colors.sport} 
