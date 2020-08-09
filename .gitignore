@@ -3,7 +3,3 @@ config/termite/config
 config/zathura/zathurarc
 
 config/nvim/.netrwhist
-
-eyecare/eyecare
-eyecare/*.o
-eyecare/*.obj
