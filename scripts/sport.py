@@ -36,16 +36,23 @@ with open(EXERCISES_FILE, "r") as file:
         exercises[name] = int(splited[0])
 
 exlist = list(exercises.items())
-(exercise, count) = random.choice(exlist)
-
 
 app = QApplication([])
 widget = QWidget()
 
-done = QMessageBox.question(widget, "Exercises", "Did u do {} {}".format(count, exercise), QMessageBox.Yes | QMessageBox.No)
-if done != QMessageBox.Yes:
-    QMessageBox.question(widget, "Oh.. buddy", "I'm disappointed in you", QMessageBox.Close)
-    count = 0
+(exercise, count) = (None, 0)
+reroll = True
+while reroll == True:
+    (exercise, count) = random.choice(exlist)
+    
+    done = QMessageBox.question(widget, "Exercises", "Did u do {} {}".format(count, exercise), QMessageBox.Yes | QMessageBox.No)
+    if done != QMessageBox.Yes:
+        reroll = QMessageBox.question(widget, "Reroll", "Change exercise", QMessageBox.Yes | QMessageBox.No) == QMessageBox.Yes
+        if reroll != True:
+            QMessageBox.question(widget, "Oh.. buddy", "I'm disappointed in you", QMessageBox.Close)
+            count = 0
+    else:
+        reroll = False
 
 with open(HISTFILE, "a") as file:
     print(datetime.now(), count, exercise, sep=',', end='\n', file=file)
