@@ -12,6 +12,7 @@ PS1="%F{cyan}%(5~|%-1~/.../%3~|%4~) $RAINBOW "
 unsetopt prompt_cr prompt_sp
 
 autoload -U compinit
+autoload -U +X bashcompinit && bashcompinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
@@ -28,13 +29,16 @@ alias grep='grep --color=auto'
 alias mv='mv -i'
 
 alias ranger='ranger --choosedir=$HOME/.cache/ranger/rangerdir; LASTDIR=`cat $HOME/.cache/ranger/rangerdir`; cd "$LASTDIR"'
+alias rn='ranger --choosedir=$HOME/.cache/ranger/rangerdir; LASTDIR=`cat $HOME/.cache/ranger/rangerdir`; cd "$LASTDIR"'
 alias ntfs-mount='sudo mount -t ntfs-3g -o rw,auto,user,fmask=0022,dmask=0000'
 alias fsstat='df -h | head -n 1 && df -h | grep nvme'
+
 alias ss='yay -Ss'
 alias ssi='sudo pacman -S'
 alias ssy='yay -S'
 
 alias testc='cmake --build . && ctest .'
+alias lignr='vim ./.git/info/exclude'
 
 function wfr {
     nmcli r w off && nmcli r w on
@@ -58,4 +62,4 @@ function dirsize {
 
 export EDITOR=vim
 export PATH=$PATH:$HOME/dotfiles/scripts
-
+export PATH=$PATH:$HOME/.local/bin
