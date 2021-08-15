@@ -10,6 +10,7 @@ Plug 'rakr/vim-one'
 Plug 'townk/vim-autoclose'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
+Plug 'tpope/vim-repeat'
 
 " Haskell
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
@@ -17,7 +18,9 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'twinside/vim-hoogle'
 
 " C++
-Plug 'rip-rip/clang_complete'
+" clang_complete fails
+" Plug 'rip-rip/clang_complete'
+Plug 'vim-syntastic/syntastic'
 
 " LaTeX
 Plug 'lervag/vimtex'
@@ -29,7 +32,11 @@ if !exists('g:airline_symbols')
 endif
 
 " unicode symbols
-" let g:airline#extensions#tabline#enabled = 1
+if expand('%:t') == "COMMIT_EDITMSG"
+    let g:airline#extensions#tabline#enabled = 0
+else
+    let g:airline#extensions#tabline#enabled = 1
+endif
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
@@ -45,6 +52,7 @@ set smarttab
 set expandtab
 set smartindent
 set hidden
+set mouse=a
 
 set splitbelow
 set splitright
@@ -61,15 +69,6 @@ noremap <F7> :bnext <Enter>
 " set keymap=russian-jcukenwin
 " set iminsert=0
 " set imsearch=0
-
-" noremap  <Up> ""
-" noremap! <Up> <Esc>
-" noremap  <Down> ""
-" noremap! <Down> <Esc>
-" noremap  <Left> ""
-" noremap! <Left> <Esc>
-" noremap  <Right> ""
-" noremap! <Right> <Esc>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -92,7 +91,8 @@ let g:haskell_indent_guard = 4
 "
 " C++
 "
-let g:clang_library_path='/usr/lib/libclang.so'
+
+"let g:clang_library_path='/usr/lib/libclang.so'
 
 " 
 " LaTeX
